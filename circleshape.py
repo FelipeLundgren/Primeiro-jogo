@@ -18,5 +18,10 @@ class CircleShape(pygame.sprite.Sprite):
         pygame.draw.polygon(screen,"white", self.triangle(),2)
         
     def update(self, dt):
-        # sub-classes must override
-        pass
+        print(f"Updating Player with dt: {dt}")
+        keys = pygame.key.get_pressed()
+
+        if keys[pygame.K_a]:
+            self.rotate(-dt)
+        if keys[pygame.K_d]:
+            self.rotate(dt)
