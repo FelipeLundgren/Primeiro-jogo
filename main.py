@@ -3,6 +3,7 @@ from constants import *
 from player import *
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+import sys
 def main():
     print(f"Containers are set: {hasattr(Player, 'containers')}")
     print("Starting asteroids!")
@@ -27,12 +28,20 @@ def main():
         
         for item in updatable:
             item.update(dt)
+
+        for circle in asteroids:
+            if player.collision(circle):
+                print("Game Over!")
+                sys.exit()
+        
         for imagem in drawable:
             imagem.draw(screen)
-        pygame.display.flip()
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+        
+        pygame.display.flip()
         dt = clock.tick(60) / 1000
         
         
