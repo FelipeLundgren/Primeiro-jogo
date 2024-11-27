@@ -15,17 +15,7 @@ class CircleShape(pygame.sprite.Sprite):
         self.radius = radius
 
     def draw(self, screen):
-        pygame.draw.polygon(screen,"white", self.triangle(),2)
+        pass
         
     def update(self, dt):
-        print(f"Updating Player with dt: {dt}")
-        keys = pygame.key.get_pressed()
-
-        if keys[pygame.K_a]:
-            self.rotate(-dt)
-        if keys[pygame.K_d]:
-            self.rotate(dt)
-        if keys[pygame.K_s]:
-            self.move(-dt)
-        if keys[pygame.K_w]:
-            self.move(dt)
+        pass

@@ -4,10 +4,13 @@ from constants import *
 
 class Player (CircleShape):
     def __init__(self,x,y):
-        self.rotation = 0
-        
         super().__init__(x,y,PLAYER_RADIUS)
-        # in the player class
+        self.rotation = 0
+        self.add_to_containers()
+    
+    def add_to_containers(self):
+        for group in self.containers:
+            group.add(self)
     
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
