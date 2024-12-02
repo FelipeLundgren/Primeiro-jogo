@@ -4,6 +4,7 @@ from player import *
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
 import sys
+from Shot import *
 def main():
     print(f"Containers are set: {hasattr(Player, 'containers')}")
     print("Starting asteroids!")
@@ -16,11 +17,14 @@ def main():
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    shots = pygame.sprite.Group()
+    Shot.containers = (shots, updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     Player.containers = (updatable,drawable)
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     AsteroidField.containers = (updatable,)  # Note the comma to make it a tuple
     asteroid_field = AsteroidField()
+    
     
     
     while True: 
