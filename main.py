@@ -38,6 +38,14 @@ def main():
                 print("Game Over!")
                 sys.exit()
         
+        for circle in asteroids:
+            for shot in shots:
+                if shot.collision(circle):
+                    circle.split()
+                    shot.kill()
+
+
+
         for imagem in drawable:
             imagem.draw(screen)
         
